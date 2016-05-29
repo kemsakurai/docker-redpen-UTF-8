@@ -10,7 +10,6 @@ FROM ubuntu
 MAINTAINER Ken Sakurai "sakurai.kem@gmail.com"
 
 # Set locale
-RUN apt-get install -y --no-install-recommends apt-utils locales
 RUN locale-gen en_US.UTF-8  
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
