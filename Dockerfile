@@ -4,7 +4,7 @@
 #
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM dockerfile/ubuntu:14.04
 
 # maintainer details
 MAINTAINER Ken Sakurai "sakurai.kem@gmail.com"
