@@ -4,7 +4,7 @@
 #
 
 # Pull base image.
-FROM ubuntu
+FROM ubuntu:14.04
 
 # maintainer details
 MAINTAINER Ken Sakurai "sakurai.kem@gmail.com"
