@@ -3,11 +3,18 @@
 # https://github.com/kemsakurai/docker-redpen-UTF-8
 #
 
-# pull base image.
-FROM iserko/docker-ubuntu-locale
+# Pull base image.
+FROM dockerfile/ubuntu
 
 # maintainer details
 MAINTAINER Ken Sakurai "sakurai.kem@gmail.com"
+
+# Set locale
+RUN apt-get install -y --no-install-recommends apt-utils locales
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8
 
 # Install Java.
 RUN \
@@ -17,7 +24,6 @@ RUN \
   apt-get install -y oracle-java8-installer && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
-
 
 # Define working directory.
 WORKDIR /data
