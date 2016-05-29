@@ -10,11 +10,17 @@ FROM java:8
 MAINTAINER Ken Sakurai "sakurai.kem@gmail.com"
 
 # Set Locale
-RUN apt-get install -y --no-install-recommends apt-utils locales
-RUN locale-gen en_US.UTF-8  
-ENV LANG en_US.UTF-8  
-ENV LANGUAGE en_US:en  
-ENV LC_ALL en_US.UTF-8
+# RUN apt-get install -y --no-install-recommends apt-utils locales
+# RUN locale-gen en_US.UTF-8  
+# ENV LANG en_US.UTF-8  
+# ENV LANGUAGE en_US:en  
+# ENV LC_ALL en_US.UTF-8
+RUN yum -y reinstall glibc-common
+RUN localedef -v -c -i ja_JP -f UTF-8 ja_JP.UTF-8; echo "";
+
+env LANG=ja_JP.UTF-8
+RUN rm -f /etc/localtime
+RUN ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 # DownLoad Redpen
 WORKDIR /tmp
