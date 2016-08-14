@@ -27,9 +27,9 @@ RUN echo "export JAVA_HOME=/usr/lib/jvm/java-8-oracle" >> /etc/environment
 
 # DownLoad Redpen
 WORKDIR /tmp
-RUN wget -q https://github.com/redpen-cc/redpen/releases/download/redpen-1.5.5/redpen-1.5.5.tar.gz -O - | tar xz && \
-    cp -av redpen-distribution-1.5.5/* /usr/local/ && \
-    rm -rf redpen-distribution-1.5.5
+RUN wget -q https://github.com/redpen-cc/redpen/releases/download/redpen-1.7.0/redpen-1.7.0.tar.gz -O - | tar xz && \
+    cp -av redpen-distribution-1.7.0/* /usr/local/ && \
+    rm -rf redpen-distribution-1.7.0
 
 RUN export PATH=$PATH:/usr/local/bin
 WORKDIR /data
